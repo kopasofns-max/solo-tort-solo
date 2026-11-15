@@ -434,10 +434,42 @@
     .drink-groups .sub-btn[hidden] { display: none; }
     .card-img-wrapper.card-img-contain { background: #F4EFEA; }
     .card-img-wrapper.card-img-contain img { object-fit: contain; padding: 14px; }
-    .menu-card[data-category="drinks"] .card-img-wrapper { height: 280px; }
-    .menu-card[data-category="drinks"] .card-img-wrapper.card-img-contain img { padding: 0; }
+    .menu-card[data-category="drinks"] {
+        box-shadow: 0 10px 28px rgba(43, 30, 26, 0.08);
+    }
+    .menu-card[data-category="drinks"]:hover {
+        box-shadow: 0 18px 38px rgba(43, 30, 26, 0.13);
+    }
+    .menu-card[data-category="drinks"] .card-img-wrapper {
+        height: 290px;
+        background: radial-gradient(ellipse at 50% 28%, #FFFFFF 0%, #FAF8F5 58%, #EEE7DF 100%);
+    }
+    .menu-card[data-category="drinks"] .card-img-wrapper::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 18px;
+        width: 42%;
+        height: 14px;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: rgba(43, 30, 26, 0.17);
+        filter: blur(9px);
+        z-index: 0;
+    }
+    .menu-card[data-category="drinks"] .card-img-wrapper.card-img-contain img {
+        position: relative;
+        z-index: 1;
+        padding: 16px 20px 24px;
+        filter: drop-shadow(0 10px 9px rgba(43, 30, 26, 0.16));
+    }
     .menu-card[data-category="drinks"][data-drink-group="milkshakes"] .card-img-wrapper { background: #FFFFFF; }
-    .menu-card[data-category="drinks"][data-drink-group="milkshakes"] .card-img-wrapper img { object-fit: cover; }
+    .menu-card[data-category="drinks"][data-drink-group="milkshakes"] .card-img-wrapper::after { display: none; }
+    .menu-card[data-category="drinks"][data-drink-group="milkshakes"] .card-img-wrapper img {
+        object-fit: cover;
+        padding: 0;
+        filter: none;
+    }
 
     /* === Cake Gallery === */
     .cake-gallery-section { padding: 60px 0 80px; }
@@ -599,7 +631,7 @@
         .cake-gallery-item { margin-bottom: 12px; border-radius: 14px; }
         .section-header h2 { font-size: 36px; margin-bottom: 8px; line-height: 1.2; }
         .section-header p { margin-top: 4px; }
-        .menu-card[data-category="drinks"] .card-img-wrapper { height: 250px; }
+        .menu-card[data-category="drinks"] .card-img-wrapper { height: 260px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
