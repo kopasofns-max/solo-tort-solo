@@ -434,6 +434,10 @@
     .drink-groups .sub-btn[hidden] { display: none; }
     .card-img-wrapper.card-img-contain { background: #F4EFEA; }
     .card-img-wrapper.card-img-contain img { object-fit: contain; padding: 14px; }
+    .menu-card[data-category="drinks"] .card-img-wrapper { height: 280px; }
+    .menu-card[data-category="drinks"] .card-img-wrapper.card-img-contain img { padding: 0; }
+    .menu-card[data-category="drinks"][data-drink-group="milkshakes"] .card-img-wrapper { background: #FFFFFF; }
+    .menu-card[data-category="drinks"][data-drink-group="milkshakes"] .card-img-wrapper img { object-fit: cover; }
 
     /* === Cake Gallery === */
     .cake-gallery-section { padding: 60px 0 80px; }
@@ -595,6 +599,7 @@
         .cake-gallery-item { margin-bottom: 12px; border-radius: 14px; }
         .section-header h2 { font-size: 36px; margin-bottom: 8px; line-height: 1.2; }
         .section-header p { margin-top: 4px; }
+        .menu-card[data-category="drinks"] .card-img-wrapper { height: 250px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -653,7 +658,7 @@
                 <p class="hero-description">Свадебные, праздничные и детские торты с индивидуальным дизайном. Забыли заказать заранее? Заберите готовый свежий торт из витрины на Циолковского, 29 за 20 минут без предупреждения! А ещё готовим кофе с фирменными котиками на пенке 🐾</p>
                 <div class="hero-actions">
                     <a href="#menu" class="btn-main trigger-custom-cakes">Заказать индивидуальный 🎂</a>
-                    <a href="#express" class="btn-ghost trigger-ready-cakes">Торты за 20 минут</a>
+                    <a href="#menu" class="btn-ghost trigger-ready-cakes">Торты за 20 минут</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -744,8 +749,7 @@
             <button type="button" class="cat-btn" data-filter="drinks">Напитки</button>
         </div>
         <div class="sub-categories" id="foodSubMenu">
-            <button class="sub-btn active" data-subfilter="all-food">Вся еда</button>
-            <button class="sub-btn" data-subfilter="breakfast">Завтраки</button>
+            <button class="sub-btn active" data-subfilter="breakfast">Завтраки</button>
             <button class="sub-btn" data-subfilter="eclairs">Эклеры</button>
             <button class="sub-btn" data-subfilter="croissants">Круассаны</button>
             <button class="sub-btn" data-subfilter="soups">Супы</button>
@@ -761,7 +765,7 @@
             <button type="button" class="sub-btn" data-drink-group="ice-cream-latte" data-temperature="cold" aria-pressed="false">Айскрем латте</button>
             <button type="button" class="sub-btn" data-drink-group="cream-matcha" data-temperature="cold" aria-pressed="false">Крем-матча</button>
             <button type="button" class="sub-btn" data-drink-group="lemonades" data-temperature="cold" aria-pressed="false">Лимонады</button>
-            <button type="button" class="sub-btn" data-drink-group="milkshakes" data-temperature="cold" aria-pressed="false">Молочные коктейли</button>
+            <button type="button" class="sub-btn" data-drink-group="milkshakes" data-temperature="cold" aria-pressed="false">Молочные напитки</button>
             <button type="button" class="sub-btn" data-drink-group="coffee" data-temperature="hot" aria-pressed="false" hidden>Кофе</button>
             <button type="button" class="sub-btn" data-drink-group="signature-coffee" data-temperature="hot" aria-pressed="false" hidden>Авторский кофе</button>
             <button type="button" class="sub-btn" data-drink-group="tea" data-temperature="hot" aria-pressed="false" hidden>Чай</button>
@@ -786,94 +790,74 @@
                 <div class="card-img-wrapper"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" alt="Детский торт" loading="lazy"><span class="card-tag">Под заказ</span></div>
                 <div class="card-content"><div><h3 class="card-title">Детский торт (пример)</h3><div class="card-weight">Любые герои и фигурки</div></div><div class="card-footer"><span class="card-price">от 1 800 ₽ / кг</span></div></div>
             </div>
-            <!-- ==== ЕДА И ДЕСЕРТЫ: позиции, цены и фото из PDF-меню ==== -->
+            <!-- ==== ЕДА И ДЕСЕРТЫ: позиции, цены и фото из приложенного кода ==== -->
             <div class="menu-card" data-category="food" data-subcategory="breakfast" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/syrniki.webp" alt="Сырники" loading="lazy"><span class="card-tag">Завтраки</span></div>
-                <div class="card-content"><div><h3 class="card-title">Сырники</h3></div><div class="card-footer"><span class="card-price">320 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3434-3135-4363-a436-323032626663/-/format/webp/_.jpg.webp" alt="Авокадо тост с индейкой" loading="lazy"><span class="card-tag">Завтраки</span></div>
+                <div class="card-content"><div><h3 class="card-title">Авокадо тост с индейкой</h3><div class="card-weight">200 г</div></div><div class="card-footer"><span class="card-price">520 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="breakfast" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/shakshuka.webp" alt="Шакшука" loading="lazy"><span class="card-tag">Завтраки</span></div>
-                <div class="card-content"><div><h3 class="card-title">Шакшука</h3></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild6239-6335-4536-b037-666634313439/-/format/webp/_.jpg.webp" alt="Авокадо тост с форелью" loading="lazy"><span class="card-tag">Завтраки</span></div>
+                <div class="card-content"><div><h3 class="card-title">Авокадо тост с форелью</h3><div class="card-weight">200 г</div></div><div class="card-footer"><span class="card-price">590 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="breakfast" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/breakfast-solo.webp" alt="Завтрак solo" loading="lazy"><span class="card-tag">Завтраки</span></div>
-                <div class="card-content"><div><h3 class="card-title">Завтрак solo</h3></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3534-6565-4338-b363-656433343335/-/format/webp/_.jpg.webp" alt="Завтрак solo" loading="lazy"><span class="card-tag">Завтраки</span></div>
+                <div class="card-content"><div><h3 class="card-title">Завтрак solo</h3><div class="card-weight">300 г</div></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="breakfast" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/breakfast-all.webp" alt="Завтрак «Всё и сразу»" loading="lazy"><span class="card-tag">Завтраки</span></div>
-                <div class="card-content"><div><h3 class="card-title">Завтрак «Всё и сразу»</h3></div><div class="card-footer"><span class="card-price">540 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3338-3862-4739-a263-376230343936/-/format/webp/___.jpg.webp" alt="Завтрак все и сразу" loading="lazy"><span class="card-tag">Завтраки</span></div>
+                <div class="card-content"><div><h3 class="card-title">Завтрак все и сразу</h3><div class="card-weight">240 г</div></div><div class="card-footer"><span class="card-price">540 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="breakfast" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/breakfast-all.webp" alt="Авокадо-тост с индейкой" loading="lazy"><span class="card-tag">Завтраки</span></div>
-                <div class="card-content"><div><h3 class="card-title">Авокадо-тост с индейкой</h3></div><div class="card-footer"><span class="card-price">520 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild6536-3337-4236-b561-363337646636/-/format/webp/photo.jpg.webp" alt="Сырники" loading="lazy"><span class="card-tag">Завтраки</span></div>
+                <div class="card-content"><div><h3 class="card-title">Сырники</h3><div class="card-weight">160 г</div></div><div class="card-footer"><span class="card-price">320 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="breakfast" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/breakfast-all.webp" alt="Авокадо-тост с форелью" loading="lazy"><span class="card-tag">Завтраки</span></div>
-                <div class="card-content"><div><h3 class="card-title">Авокадо-тост с форелью</h3></div><div class="card-footer"><span class="card-price">590 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3963-6466-4534-a561-623038373739/-/format/webp/photo.jpg.webp" alt="Шакшука" loading="lazy"><span class="card-tag">Завтраки</span></div>
+                <div class="card-content"><div><h3 class="card-title">Шакшука</h3><div class="card-weight">300 г</div></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
+            </div>
+            <div class="menu-card" data-category="food" data-subcategory="eclairs" style="display: none;">
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3464-6365-4666-a364-343264393531/-/format/webp/_.jpg.webp" alt="Королева моря" loading="lazy"><span class="card-tag">Эклеры</span></div>
+                <div class="card-content"><div><h3 class="card-title">Королева моря</h3><div class="card-weight">200 г</div></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
+            </div>
+            <div class="menu-card" data-category="food" data-subcategory="eclairs" style="display: none;">
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild6364-3530-4165-b039-663836343765/-/format/webp/_.jpg.webp" alt="Кролик Роджер" loading="lazy"><span class="card-tag">Эклеры</span></div>
+                <div class="card-content"><div><h3 class="card-title">Кролик Роджер</h3><div class="card-weight">160 г</div></div><div class="card-footer"><span class="card-price">300 ₽</span></div></div>
+            </div>
+            <div class="menu-card" data-category="food" data-subcategory="eclairs" style="display: none;">
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3136-6530-4966-b261-373836633938/-/format/webp/_.jpg.webp" alt="Не Немо" loading="lazy"><span class="card-tag">Эклеры</span></div>
+                <div class="card-content"><div><h3 class="card-title">Не Немо</h3><div class="card-weight">180 г</div></div><div class="card-footer"><span class="card-price">360 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="croissants" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/syrniki.webp" alt="Круассан классический" loading="lazy"><span class="card-tag">Круассаны</span></div>
-                <div class="card-content"><div><h3 class="card-title">Круассан классический</h3></div><div class="card-footer"><span class="card-price">150 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild6138-3265-4361-a634-303533396662/-/format/webp/photo.jpg.webp" alt="Баноффи" loading="lazy"><span class="card-tag">Круассаны</span></div>
+                <div class="card-content"><div><h3 class="card-title">Баноффи</h3><div class="card-weight">180 г</div></div><div class="card-footer"><span class="card-price">290 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="croissants" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/croissant.webp" alt="Круассан с ветчиной и сыром" loading="lazy"><span class="card-tag">Круассаны</span></div>
-                <div class="card-content"><div><h3 class="card-title">Круассан с ветчиной и сыром</h3></div><div class="card-footer"><span class="card-price">390 ₽</span></div></div>
-            </div>
-            <div class="menu-card" data-category="food" data-subcategory="croissants" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/croissant.webp" alt="Круассан с индейкой" loading="lazy"><span class="card-tag">Круассаны</span></div>
-                <div class="card-content"><div><h3 class="card-title">Круассан с индейкой</h3></div><div class="card-footer"><span class="card-price">520 ₽</span></div></div>
-            </div>
-            <div class="menu-card" data-category="food" data-subcategory="croissants" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/croissant.webp" alt="Круассан с форелью" loading="lazy"><span class="card-tag">Круассаны</span></div>
-                <div class="card-content"><div><h3 class="card-title">Круассан с форелью</h3></div><div class="card-footer"><span class="card-price">570 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3739-6336-4161-b931-373633306433/-/format/webp/___.jpg.webp" alt="С ветчиной и сыром" loading="lazy"><span class="card-tag">Круассаны</span></div>
+                <div class="card-content"><div><h3 class="card-title">С ветчиной и сыром</h3><div class="card-weight">230 г</div></div><div class="card-footer"><span class="card-price">390 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="soups" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/soup.webp" alt="Тыквенный крем-суп" loading="lazy"><span class="card-tag">Супы</span></div>
-                <div class="card-content"><div><h3 class="card-title">Тыквенный крем-суп</h3></div><div class="card-footer"><span class="card-price">260 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild6262-3963-4561-a238-353337326364/-/format/webp/_.jpg.webp" alt="Куриный суп" loading="lazy"><span class="card-tag">Супы</span></div>
+                <div class="card-content"><div><h3 class="card-title">Куриный суп</h3><div class="card-weight">280 г</div></div><div class="card-footer"><span class="card-price">260 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="soups" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/soup.webp" alt="Куриный суп" loading="lazy"><span class="card-tag">Супы</span></div>
-                <div class="card-content"><div><h3 class="card-title">Куриный суп</h3></div><div class="card-footer"><span class="card-price">260 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3838-3966-4332-a331-623965653638/-/format/webp/photo.jpg.webp" alt="Тыквенный крем-суп" loading="lazy"><span class="card-tag">Супы</span></div>
+                <div class="card-content"><div><h3 class="card-title">Тыквенный крем-суп</h3><div class="card-weight">280 г</div></div><div class="card-footer"><span class="card-price">260 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="main" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/pelmeni.webp" alt="Пельмени с индейкой" loading="lazy"><span class="card-tag">Всерьёз</span></div>
-                <div class="card-content"><div><h3 class="card-title">Пельмени с индейкой</h3></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3965-3431-4262-a536-313862353263/-/format/webp/__.jpg.webp" alt="Цезарь с креветками" loading="lazy"><span class="card-tag">Всерьёз</span></div>
+                <div class="card-content"><div><h3 class="card-title">Цезарь с креветками</h3><div class="card-weight">270 г</div></div><div class="card-footer"><span class="card-price">590 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="main" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/pelmeni.webp" alt="Вонтоны с креветками и кальмаром" loading="lazy"><span class="card-tag">Всерьёз</span></div>
-                <div class="card-content"><div><h3 class="card-title">Вонтоны с креветками и кальмаром</h3></div><div class="card-footer"><span class="card-price">400 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3336-3933-4665-a166-396230333630/-/format/webp/__.jpg.webp" alt="Боул с индейкой сувид" loading="lazy"><span class="card-tag">Всерьёз</span></div>
+                <div class="card-content"><div><h3 class="card-title">Боул с индейкой сувид</h3><div class="card-weight">260 г</div></div><div class="card-footer"><span class="card-price">460 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="main" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/bowl.webp" alt="Котлета с птитимом" loading="lazy"><span class="card-tag">Всерьёз</span></div>
-                <div class="card-content"><div><h3 class="card-title">Котлета с птитимом</h3></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3933-3834-4761-b332-613733653439/-/format/webp/__.jpg.webp" alt="Пельмени" loading="lazy"><span class="card-tag">Всерьёз</span></div>
+                <div class="card-content"><div><h3 class="card-title">Пельмени</h3><div class="card-weight">280 г</div></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="main" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/bowl.webp" alt="Котлета с бататом" loading="lazy"><span class="card-tag">Всерьёз</span></div>
-                <div class="card-content"><div><h3 class="card-title">Котлета с бататом</h3></div><div class="card-footer"><span class="card-price">460 ₽</span></div></div>
-            </div>
-            <div class="menu-card" data-category="food" data-subcategory="main" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/bowl.webp" alt="Боул с индейкой су-вид" loading="lazy"><span class="card-tag">Всерьёз</span></div>
-                <div class="card-content"><div><h3 class="card-title">Боул с индейкой су-вид</h3></div><div class="card-footer"><span class="card-price">460 ₽</span></div></div>
-            </div>
-            <div class="menu-card" data-category="food" data-subcategory="main" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/bowl.webp" alt="Боул «Цезарь» с креветками" loading="lazy"><span class="card-tag">Всерьёз</span></div>
-                <div class="card-content"><div><h3 class="card-title">Боул «Цезарь» с креветками</h3></div><div class="card-footer"><span class="card-price">590 ₽</span></div></div>
-            </div>
-            <div class="menu-card" data-category="food" data-subcategory="main" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/bowl.webp" alt="Боул 67" loading="lazy"><span class="card-tag">Всерьёз</span></div>
-                <div class="card-content"><div><h3 class="card-title">Боул 67</h3></div><div class="card-footer"><span class="card-price">600 ₽</span></div></div>
-            </div>
-            <div class="menu-card" data-category="food" data-subcategory="eclairs" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/eclair-almond.webp" alt="Кролик Роджер" loading="lazy"><span class="card-tag">Эклеры</span></div>
-                <div class="card-content"><div><h3 class="card-title">Кролик Роджер</h3></div><div class="card-footer"><span class="card-price">300 ₽</span></div></div>
-            </div>
-            <div class="menu-card" data-category="food" data-subcategory="eclairs" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/eclair-pistachio.webp" alt="Не Немо" loading="lazy"><span class="card-tag">Эклеры</span></div>
-                <div class="card-content"><div><h3 class="card-title">Не Немо</h3></div><div class="card-footer"><span class="card-price">360 ₽</span></div></div>
-            </div>
-            <div class="menu-card" data-category="food" data-subcategory="eclairs" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/eclair-almond.webp" alt="Королева моря" loading="lazy"><span class="card-tag">Эклеры</span></div>
-                <div class="card-content"><div><h3 class="card-title">Королева моря</h3></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
+                <div class="card-img-wrapper"><img src="https://optim.tildacdn.com/tild3935-3465-4430-b239-363030396237/-/format/webp/photo.jpg.webp" alt="Вонтоны" loading="lazy"><span class="card-tag">Всерьёз</span></div>
+                <div class="card-content"><div><h3 class="card-title">Вонтоны</h3><div class="card-weight">—</div></div><div class="card-footer"><span class="card-price">400 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="food" data-subcategory="takes" style="display: none;">
                 <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/take-sweet.webp" alt="Сладкий тейк" loading="lazy"><span class="card-tag">Тейки</span></div>
@@ -885,183 +869,183 @@
             </div>
             <!-- ==== НАПИТКИ: температура → внутренняя категория ==== -->
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="classic" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/iced-latte.webp" alt="Айс латте" loading="lazy"><span class="card-tag">Холодные · Классика</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/iced-latte.webp" alt="Айс латте" loading="lazy"><span class="card-tag">Классика</span></div>
                 <div class="card-content"><div><h3 class="card-title">Айс латте</h3></div><div class="card-footer"><span class="card-price">240 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="classic" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/iced-americano.webp" alt="Айс американо" loading="lazy"><span class="card-tag">Холодные · Классика</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/iced-americano.webp" alt="Айс американо" loading="lazy"><span class="card-tag">Классика</span></div>
                 <div class="card-content"><div><h3 class="card-title">Айс американо</h3></div><div class="card-footer"><span class="card-price">220 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="classic" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/iced-matcha.webp" alt="Айс матча" loading="lazy"><span class="card-tag">Холодные · Классика</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/iced-matcha.webp" alt="Айс матча" loading="lazy"><span class="card-tag">Классика</span></div>
                 <div class="card-content"><div><h3 class="card-title">Айс матча</h3></div><div class="card-footer"><span class="card-price">240 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="classic" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/bumble.webp" alt="Бамбл" loading="lazy"><span class="card-tag">Холодные · Классика</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/bumble.webp" alt="Бамбл" loading="lazy"><span class="card-tag">Классика</span></div>
                 <div class="card-content"><div><h3 class="card-title">Бамбл</h3></div><div class="card-footer"><span class="card-price">340 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="classic" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/espresso-tonic.webp" alt="Эспрессо тоник" loading="lazy"><span class="card-tag">Холодные · Классика</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/espresso-tonic.webp" alt="Эспрессо тоник" loading="lazy"><span class="card-tag">Классика</span></div>
                 <div class="card-content"><div><h3 class="card-title">Эспрессо тоник</h3></div><div class="card-footer"><span class="card-price">240 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="ice-cream-latte" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-ube.webp" alt="Убе латте" loading="lazy"><span class="card-tag">Холодные · Айскрем латте</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-ube.webp" alt="Убе латте" loading="lazy"><span class="card-tag">Айскрем латте</span></div>
                 <div class="card-content"><div><h3 class="card-title">Убе латте</h3></div><div class="card-footer"><span class="card-price">360 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="ice-cream-latte" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-snickers.webp" alt="Сникерс" loading="lazy"><span class="card-tag">Холодные · Айскрем латте</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-snickers.webp" alt="Сникерс" loading="lazy"><span class="card-tag">Айскрем латте</span></div>
                 <div class="card-content"><div><h3 class="card-title">Сникерс</h3></div><div class="card-footer"><span class="card-price">360 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="ice-cream-latte" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-mango.webp" alt="Манго solo" loading="lazy"><span class="card-tag">Холодные · Айскрем латте</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-mango.webp" alt="Манго solo" loading="lazy"><span class="card-tag">Айскрем латте</span></div>
                 <div class="card-content"><div><h3 class="card-title">Манго solo</h3></div><div class="card-footer"><span class="card-price">380 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="ice-cream-latte" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-banana.webp" alt="Банановая карамель" loading="lazy"><span class="card-tag">Холодные · Айскрем латте</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-banana.webp" alt="Банановая карамель" loading="lazy"><span class="card-tag">Айскрем латте</span></div>
                 <div class="card-content"><div><h3 class="card-title">Банановая карамель</h3></div><div class="card-footer"><span class="card-price">400 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="ice-cream-latte" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-raspberry.webp" alt="Малиновый дракон" loading="lazy"><span class="card-tag">Холодные · Айскрем латте</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/ice-cream-raspberry.webp" alt="Малиновый дракон" loading="lazy"><span class="card-tag">Айскрем латте</span></div>
                 <div class="card-content"><div><h3 class="card-title">Малиновый дракон</h3></div><div class="card-footer"><span class="card-price">420 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="cream-matcha" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/cream-matcha-currant.webp" alt="Небесная смородина" loading="lazy"><span class="card-tag">Холодные · Крем-матча</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/cream-matcha-currant.webp" alt="Небесная смородина" loading="lazy"><span class="card-tag">Крем-матча</span></div>
                 <div class="card-content"><div><h3 class="card-title">Небесная смородина</h3></div><div class="card-footer"><span class="card-price">320 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="cream-matcha" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/cream-matcha-peach-mango.webp" alt="Персик манго" loading="lazy"><span class="card-tag">Холодные · Крем-матча</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/cream-matcha-peach-mango.webp" alt="Персик манго" loading="lazy"><span class="card-tag">Крем-матча</span></div>
                 <div class="card-content"><div><h3 class="card-title">Персик манго</h3></div><div class="card-footer"><span class="card-price">340 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="cream-matcha" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/cream-matcha-hojicha.webp" alt="Ходзича амаретто" loading="lazy"><span class="card-tag">Холодные · Крем-матча</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/cream-matcha-hojicha.webp" alt="Ходзича амаретто" loading="lazy"><span class="card-tag">Крем-матча</span></div>
                 <div class="card-content"><div><h3 class="card-title">Ходзича амаретто</h3></div><div class="card-footer"><span class="card-price">360 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="cream-matcha" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/cream-matcha-strawberry.webp" alt="Клубничный чизкейк" loading="lazy"><span class="card-tag">Холодные · Крем-матча</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/cream-matcha-strawberry.webp" alt="Клубничный чизкейк" loading="lazy"><span class="card-tag">Крем-матча</span></div>
                 <div class="card-content"><div><h3 class="card-title">Клубничный чизкейк</h3></div><div class="card-footer"><span class="card-price">400 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="lemonades" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-currant-tarragon.webp" alt="Смородина тархун" loading="lazy"><span class="card-tag">Холодные · Лимонады</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-currant-tarragon.webp" alt="Смородина тархун" loading="lazy"><span class="card-tag">Лимонады</span></div>
                 <div class="card-content"><div><h3 class="card-title">Смородина тархун</h3></div><div class="card-footer"><span class="card-price">280 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="lemonades" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-strawberry-banana.webp" alt="Клубника банан" loading="lazy"><span class="card-tag">Холодные · Лимонады</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-strawberry-banana.webp" alt="Клубника банан" loading="lazy"><span class="card-tag">Лимонады</span></div>
                 <div class="card-content"><div><h3 class="card-title">Клубника банан</h3></div><div class="card-footer"><span class="card-price">280 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="lemonades" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-grapefruit-passionfruit.webp" alt="Грейпфрут маракуйя" loading="lazy"><span class="card-tag">Холодные · Лимонады</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-grapefruit-passionfruit.webp" alt="Грейпфрут маракуйя" loading="lazy"><span class="card-tag">Лимонады</span></div>
                 <div class="card-content"><div><h3 class="card-title">Грейпфрут маракуйя</h3></div><div class="card-footer"><span class="card-price">280 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="lemonades" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-jasmine-mango.webp" alt="Жасмин манго" loading="lazy"><span class="card-tag">Холодные · Лимонады</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-jasmine-mango.webp" alt="Жасмин манго" loading="lazy"><span class="card-tag">Лимонады</span></div>
                 <div class="card-content"><div><h3 class="card-title">Жасмин манго</h3></div><div class="card-footer"><span class="card-price">280 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="lemonades" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-mojito.webp" alt="Мохито" loading="lazy"><span class="card-tag">Холодные · Лимонады</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-mojito.webp" alt="Мохито" loading="lazy"><span class="card-tag">Лимонады</span></div>
                 <div class="card-content"><div><h3 class="card-title">Мохито</h3></div><div class="card-footer"><span class="card-price">280 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="lemonades" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-grapefruit-bumble.webp" alt="Грейпфрут бамбл" loading="lazy"><span class="card-tag">Холодные · Лимонады</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-grapefruit-bumble.webp" alt="Грейпфрут бамбл" loading="lazy"><span class="card-tag">Лимонады</span></div>
                 <div class="card-content"><div><h3 class="card-title">Грейпфрут бамбл</h3></div><div class="card-footer"><span class="card-price">340 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="lemonades" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-matcha-bumble.webp" alt="Матча бамбл" loading="lazy"><span class="card-tag">Холодные · Лимонады</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-matcha-bumble.webp" alt="Матча бамбл" loading="lazy"><span class="card-tag">Лимонады</span></div>
                 <div class="card-content"><div><h3 class="card-title">Матча бамбл</h3></div><div class="card-footer"><span class="card-price">340 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="lemonades" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-matcha-tonic.webp" alt="Матча тоник" loading="lazy"><span class="card-tag">Холодные · Лимонады</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/lemonade-matcha-tonic.webp" alt="Матча тоник" loading="lazy"><span class="card-tag">Лимонады</span></div>
                 <div class="card-content"><div><h3 class="card-title">Матча тоник</h3></div><div class="card-footer"><span class="card-price">240 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="milkshakes" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/milkshake-chocolate.webp" alt="Айс какао" loading="lazy"><span class="card-tag">Холодные · Молочные коктейли</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/milkshake-chocolate.webp" alt="Айс какао" loading="lazy"><span class="card-tag">Молочные напитки</span></div>
                 <div class="card-content"><div><h3 class="card-title">Айс какао</h3><div class="card-weight">250 мл</div></div><div class="card-footer"><span class="card-price">220 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="milkshakes" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/milkshake-vanilla.webp" alt="Протеиновый коктейль" loading="lazy"><span class="card-tag">Холодные · Молочные коктейли</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/milkshake-vanilla.webp" alt="Протеиновый коктейль" loading="lazy"><span class="card-tag">Молочные напитки</span></div>
                 <div class="card-content"><div><h3 class="card-title">Протеиновый коктейль</h3><div class="card-weight">350 мл</div></div><div class="card-footer"><span class="card-price">240 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="cold" data-drink-group="milkshakes" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/milkshake-strawberry.webp" alt="Молочный коктейль" loading="lazy"><span class="card-tag">Холодные · Молочные коктейли</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/milkshake-strawberry.webp" alt="Молочный коктейль" loading="lazy"><span class="card-tag">Молочные напитки</span></div>
                 <div class="card-content"><div><h3 class="card-title">Молочный коктейль</h3><div class="card-weight">350 мл · малина / смородина / шоколад / клубника / манго</div></div><div class="card-footer"><span class="card-price">300 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Эспрессо" loading="lazy"><span class="card-tag">Горячие · Кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Эспрессо" loading="lazy"><span class="card-tag">Кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Эспрессо</h3><div class="card-weight">30 / 60 мл</div></div><div class="card-footer"><span class="card-price">100 / 180 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Американо" loading="lazy"><span class="card-tag">Горячие · Кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Американо" loading="lazy"><span class="card-tag">Кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Американо</h3><div class="card-weight">120 / 250 мл</div></div><div class="card-footer"><span class="card-price">120 / 200 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Фильтр" loading="lazy"><span class="card-tag">Горячие · Кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Фильтр" loading="lazy"><span class="card-tag">Кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Фильтр</h3><div class="card-weight">250 / 400 мл</div></div><div class="card-footer"><span class="card-price">160 / 240 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Капучино" loading="lazy"><span class="card-tag">Горячие · Кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Капучино" loading="lazy"><span class="card-tag">Кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Капучино</h3><div class="card-weight">250 / 400 мл</div></div><div class="card-footer"><span class="card-price">220 / 280 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Латте" loading="lazy"><span class="card-tag">Горячие · Кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Латте" loading="lazy"><span class="card-tag">Кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Латте</h3><div class="card-weight">250 / 400 мл</div></div><div class="card-footer"><span class="card-price">220 / 280 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Раф" loading="lazy"><span class="card-tag">Горячие · Кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Раф" loading="lazy"><span class="card-tag">Кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Раф</h3><div class="card-weight">250 / 400 мл</div></div><div class="card-footer"><span class="card-price">260 / 380 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Флэт уайт" loading="lazy"><span class="card-tag">Горячие · Кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Флэт уайт" loading="lazy"><span class="card-tag">Кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Флэт уайт</h3><div class="card-weight">250 мл</div></div><div class="card-footer"><span class="card-price">240 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="signature-coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Латте сырный рокки" loading="lazy"><span class="card-tag">Горячие · Авторский кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Латте сырный рокки" loading="lazy"><span class="card-tag">Авторский кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Латте сырный рокки</h3><div class="card-weight">250 мл · эспрессо, молоко, сыр, сахар</div></div><div class="card-footer"><span class="card-price">320 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="signature-coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Раф розовая пантера" loading="lazy"><span class="card-tag">Горячие · Авторский кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Раф розовая пантера" loading="lazy"><span class="card-tag">Авторский кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Раф розовая пантера</h3><div class="card-weight">250 мл · эспрессо, сливки, малиновый сироп, розовая матча</div></div><div class="card-footer"><span class="card-price">360 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="signature-coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Мокачино" loading="lazy"><span class="card-tag">Горячие · Авторский кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Мокачино" loading="lazy"><span class="card-tag">Авторский кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Мокачино</h3><div class="card-weight">250 мл · эспрессо, молоко, бельгийский молочный шоколад</div></div><div class="card-footer"><span class="card-price">300 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="signature-coffee" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Американо принц Персии" loading="lazy"><span class="card-tag">Горячие · Авторский кофе</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-coffee.webp" alt="Американо принц Персии" loading="lazy"><span class="card-tag">Авторский кофе</span></div>
                 <div class="card-content"><div><h3 class="card-title">Американо принц Персии</h3><div class="card-weight">250 мл · кофе по-арабски с кардамоном и сиропом «Имбирный пряник»</div></div><div class="card-footer"><span class="card-price">160 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="tea" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Матча латте" loading="lazy"><span class="card-tag">Горячие · Чай</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Матча латте" loading="lazy"><span class="card-tag">Чай</span></div>
                 <div class="card-content"><div><h3 class="card-title">Матча латте</h3><div class="card-weight">250 / 400 мл</div></div><div class="card-footer"><span class="card-price">200 / 260 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="tea" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Зелёный (жасмин)" loading="lazy"><span class="card-tag">Горячие · Чай</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Зелёный (жасмин)" loading="lazy"><span class="card-tag">Чай</span></div>
                 <div class="card-content"><div><h3 class="card-title">Зелёный (жасмин)</h3><div class="card-weight">400 мл</div></div><div class="card-footer"><span class="card-price">220 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="tea" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Чёрный (чабрец)" loading="lazy"><span class="card-tag">Горячие · Чай</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Чёрный (чабрец)" loading="lazy"><span class="card-tag">Чай</span></div>
                 <div class="card-content"><div><h3 class="card-title">Чёрный (чабрец)</h3><div class="card-weight">400 мл</div></div><div class="card-footer"><span class="card-price">220 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="tea" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Ройбуш" loading="lazy"><span class="card-tag">Горячие · Чай</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Ройбуш" loading="lazy"><span class="card-tag">Чай</span></div>
                 <div class="card-content"><div><h3 class="card-title">Ройбуш</h3><div class="card-weight">400 мл</div></div><div class="card-footer"><span class="card-price">220 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="tea" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Глинтвейн" loading="lazy"><span class="card-tag">Горячие · Чай</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Глинтвейн" loading="lazy"><span class="card-tag">Чай</span></div>
                 <div class="card-content"><div><h3 class="card-title">Глинтвейн</h3><div class="card-weight">400 мл</div></div><div class="card-footer"><span class="card-price">280 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="tea" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Джинджер" loading="lazy"><span class="card-tag">Горячие · Чай</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Джинджер" loading="lazy"><span class="card-tag">Чай</span></div>
                 <div class="card-content"><div><h3 class="card-title">Джинджер</h3><div class="card-weight">400 мл · яблоко, клюква, имбирь</div></div><div class="card-footer"><span class="card-price">280 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="tea" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Не чай" loading="lazy"><span class="card-tag">Горячие · Чай</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Не чай" loading="lazy"><span class="card-tag">Чай</span></div>
                 <div class="card-content"><div><h3 class="card-title">Не чай</h3><div class="card-weight">400 мл · облепиха, красная смородина, мёд</div></div><div class="card-footer"><span class="card-price">320 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="tea" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Не лето" loading="lazy"><span class="card-tag">Горячие · Чай</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/hot-matcha.webp" alt="Не лето" loading="lazy"><span class="card-tag">Чай</span></div>
                 <div class="card-content"><div><h3 class="card-title">Не лето</h3><div class="card-weight">400 мл · клубника, лайм, базилик, сенча</div></div><div class="card-footer"><span class="card-price">320 ₽</span></div></div>
             </div>
             <div class="menu-card" data-category="drinks" data-subcategory="hot" data-drink-group="milk-drinks" style="display: none;">
-                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/milkshake-chocolate.webp" alt="Какао" loading="lazy"><span class="card-tag">Горячие · Молочные напитки</span></div>
+                <div class="card-img-wrapper card-img-contain"><img src="https://cdn.jsdelivr.net/gh/kopasofns-max/solo-tort-solo@main/assets/menu/milkshake-chocolate.webp" alt="Какао" loading="lazy"><span class="card-tag">Молочные напитки</span></div>
                 <div class="card-content"><div><h3 class="card-title">Какао</h3><div class="card-weight">250 мл</div></div><div class="card-footer"><span class="card-price">200 ₽</span></div></div>
             </div>
         </div>
@@ -1140,7 +1124,7 @@
         const menuCards = document.querySelectorAll('.menu-grid .menu-card');
         const firstDrinkGroup = { cold: 'classic', hot: 'coffee' };
         let activeMainFilter = 'cakes-ready';
-        let activeFoodFilter = 'all-food';
+        let activeFoodFilter = 'breakfast';
         let activeDrinkTemperature = 'cold';
         let activeDrinkGroup = 'classic';
 
@@ -1165,7 +1149,7 @@
         function renderMenuCards() {
             menuCards.forEach(card => {
                 let visible = card.dataset.category === activeMainFilter;
-                if (visible && activeMainFilter === 'food' && activeFoodFilter !== 'all-food') {
+                if (visible && activeMainFilter === 'food') {
                     visible = card.dataset.subcategory === activeFoodFilter;
                 }
                 if (visible && activeMainFilter === 'drinks') {
@@ -1194,8 +1178,8 @@
                 updateButtonStates(drinkTemperatureBtns, subMenuDrinks.querySelector('[data-subfilter="cold"]'));
             }
             if (isFood) {
-                activeFoodFilter = 'all-food';
-                updateButtonStates(foodBtns, subMenuFood.querySelector('[data-subfilter="all-food"]'));
+                activeFoodFilter = 'breakfast';
+                updateButtonStates(foodBtns, subMenuFood.querySelector('[data-subfilter="breakfast"]'));
             }
             updateDrinkGroups();
             renderMenuCards();
