@@ -1,0 +1,31 @@
+name: Publish aligned drink page
+
+on:
+  push:
+    paths:
+      - .github/workflows/publish-aligned-page.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and publish page
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 2 --referer 'https://qu.ax/9ckjk' 'https://qu.ax/x/9ckjk.txt' -o /tmp/tort_solo.html
+          echo '5c66f3cfdcaf6f7c212bb43bddcadc00ee48880d3af637b0b9643c055c6b5ab1  /tmp/tort_solo.html' | sha256sum -c -
+          cp /tmp/tort_solo.html tort_solo.html
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tort_solo.html
+          git commit -m 'Use aligned cold drink photography'
+          git push origin main
+          rm .github/workflows/publish-aligned-page.yml
+          git add .github/workflows/publish-aligned-page.yml
+          git commit -m 'Remove one-time page publish workflow'
+          git push origin main
