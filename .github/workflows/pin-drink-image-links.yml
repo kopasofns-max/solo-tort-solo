@@ -1,0 +1,35 @@
+name: Pin drink image links
+
+on:
+  push:
+    paths:
+      - .github/workflows/pin-drink-image-links.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and commit pinned image links
+        env:
+          EXPECTED_SHA256: 883733e9ba42409e459f0e9d49acfa84fbee8b2271e7bb9c7c311593b0cf07a7
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --max-time 90 -e 'https://qu.ax/ZJHX7' 'https://qu.ax/ZJHX7.txt' -o /tmp/tort_solo.html
+          echo "$EXPECTED_SHA256  /tmp/tort_solo.html" | sha256sum -c -
+          cp /tmp/tort_solo.html tort_solo.html
+          rm -f .github/workflows/pin-drink-image-links.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tort_solo.html
+          git add -A .github/workflows/pin-drink-image-links.yml
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+            exit 0
+          fi
+          git commit -m 'Pin menu images to the normalized asset revision'
+          git push origin main
