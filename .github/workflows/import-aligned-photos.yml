@@ -1,0 +1,36 @@
+name: Import aligned drink photos
+
+on:
+  push:
+    paths:
+      - .github/workflows/import-aligned-photos.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and install photos
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 2 --referer 'https://qu.ax/YwzqP' 'https://qu.ax/x/YwzqP.zip' -o /tmp/photos.zip
+          echo '1757c606892b4488ad5104235e1626f7b8041d28bb358de39600e3a2582a2247  /tmp/photos.zip' | sha256sum -c -
+          rm -rf /tmp/solo-photos && mkdir -p /tmp/solo-photos
+          unzip -q /tmp/photos.zip -d /tmp/solo-photos
+          cd /tmp/solo-photos
+          sha256sum -c photos.sha256
+          cp ./*.webp "$GITHUB_WORKSPACE/assets/menu/"
+          cd "$GITHUB_WORKSPACE"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/menu
+          git commit -m 'Align cold drink photo framing'
+          git push origin main
+          rm .github/workflows/import-aligned-photos.yml
+          git add .github/workflows/import-aligned-photos.yml
+          git commit -m 'Remove one-time photo import workflow'
+          git push origin main
