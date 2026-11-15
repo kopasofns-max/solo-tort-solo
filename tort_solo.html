@@ -308,11 +308,103 @@
         transform: translateZ(0);
     }
 
-    .hero-visual img {
+    .hero-slider,
+    .slides-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-slider .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transform: scale(1.03);
+        pointer-events: none;
+        transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    }
+
+    .hero-slider .slide.active {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+    }
+
+    .hero-slider .slide img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
+    }
+
+    .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        color: var(--brand-espresso);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .slider-btn:hover,
+    .slider-btn:focus-visible {
+        background: #FFFFFF;
+        color: var(--brand-terracotta);
+        outline: 2px solid var(--brand-terracotta);
+        outline-offset: 2px;
+    }
+
+    .slider-btn svg {
+        width: 22px;
+        height: 22px;
+        fill: currentColor;
+    }
+
+    .prev-btn { left: 16px; }
+    .next-btn { right: 16px; }
+
+    .slider-dots {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+        display: flex;
+        gap: 7px;
+        background: rgba(43, 30, 26, 0.35);
+        padding: 9px 12px;
+        border-radius: 20px;
+    }
+
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.55);
+        cursor: pointer;
+        transition: width 0.2s, background 0.2s;
+    }
+
+    .slider-dot.active {
+        background: #FFFFFF;
+        width: 24px;
+        border-radius: 10px;
+    }
+
+    .slider-dot:focus-visible {
+        outline: 2px solid #FFFFFF;
+        outline-offset: 3px;
     }
 
     .hero-badge-overlay {
@@ -636,6 +728,92 @@
         color: var(--brand-terracotta);
     }
 
+    /* === Drink Groups === */
+    .drinks-categories {
+        gap: 18px;
+    }
+
+    .drinks-categories[style*="block"] {
+        display: block !important;
+    }
+
+    .all-drinks-btn {
+        display: block;
+        margin: 0 auto 20px;
+    }
+
+    .drink-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        margin-top: 14px;
+    }
+
+    .drink-group-title {
+        flex: 0 0 100%;
+        text-align: center;
+        color: var(--brand-espresso);
+        font-family: var(--font-serif);
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .drink-group-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    /* === Cake Gallery === */
+    .cake-gallery-section {
+        padding: 60px 0 80px;
+    }
+
+    .cake-gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .cake-gallery-item {
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        background: var(--brand-warm-light);
+        border: 1px solid var(--border-soft);
+        aspect-ratio: 4 / 5;
+    }
+
+    .cake-gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .cake-gallery-item:hover img {
+        transform: scale(1.04);
+    }
+
+    .cake-gallery-item figcaption {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--brand-espresso);
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+    }
+
     /* === Reviews Section === */
     .reviews-section {
         padding: 80px 0;
@@ -944,7 +1122,8 @@
         .express-banner { grid-template-columns: 1fr; text-align: left; }
         .express-features-list { justify-content: flex-start; flex-wrap: wrap; }
         .vibe-grid { grid-template-columns: repeat(2, 1fr); }
-        .hero-visual { height: 380px; }
+        .cake-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        .hero-visual { height: 420px; }
         
         .express-text h2 { font-size: 32px; }
         .reviews-section .section-header h2 { font-size: 36px; white-space: nowrap; }
@@ -956,9 +1135,27 @@
         .hero-v3 h1 { font-size: 38px; }
         .express-banner { padding: 28px 20px; }
         .nav-links { display: none; }
+        .logo-title { white-space: nowrap; }
+        .header-phone { margin-right: 0; font-size: 13px; }
+        .header-right .social-pill { display: none; }
+        .hero-visual { height: 420px; }
+        .hero-badge-overlay { left: 12px; right: 12px; bottom: 12px; padding: 14px; gap: 10px; }
+        .slider-btn { width: 44px; height: 44px; }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+        .slider-dots { top: 12px; right: 12px; }
+        .cake-gallery-grid { gap: 12px; }
+        .cake-gallery-item figcaption { left: 8px; right: 8px; bottom: 8px; padding: 8px; font-size: 12px; }
+        .drink-group { gap: 8px; }
         
         .section-header h2 { font-size: 36px; margin-bottom: 8px; line-height: 1.2; }
         .section-header p { margin-top: 4px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .hero-slider .slide,
+        .cake-gallery-item img { transition: none; }
     }
 </style>
 
@@ -1000,7 +1197,7 @@
                         <!-- Филиал 1 (Кофейня - переход) -->
                         <a href="https://tortsolo.ru/kofeynya-solo" target="_blank" class="loc-row link-loc">
                             <div class="loc-info">
-                                <h4><span class="dot"></span> Кофейня Solo: Мира, 13</h4>
+                                <h4><span class="dot"></span> Кофейня solo: Мира, 13</h4>
                                 <p>Завтраки целый день, кофе с котиками и уютная атмосфера</p>
                             </div>
                             <span class="loc-action">Перейти ↗</span>
@@ -1008,7 +1205,7 @@
                         <!-- Филиал 2 (Кондитерская - активный) -->
                         <div class="loc-row active-loc">
                             <div class="loc-info">
-                                <h4>📍 Кондитерская Торт Solo: Циолковского, 29</h4>
+                                <h4>📍 Кондитерская Торт solo: Циолковского, 29</h4>
                                 <p>Кофе, десерты, торты на заказ или готовые за 20 минут</p>
                             </div>
                             <span class="loc-action">Вы здесь</span>
@@ -1019,7 +1216,7 @@
                 <h1>Авторские торты <i>на заказ</i> и готовые прямо сейчас</h1>
 
                 <p class="hero-description">
-                    Свадебные, праздничные и детские торты с индивидуальным дизайном. Забыли заказать заранее? Заберите готовый свежий торт из витрины на Циолковского, 29 за 20 минут без предупреждения!
+                    Свадебные, праздничные и детские торты с индивидуальным дизайном. Забыли заказать заранее? Заберите готовый свежий торт из витрины на Циолковского, 29 за 20 минут без предупреждения! А ещё готовим кофе с фирменными котиками на пенке 🐾
                 </p>
 
                 <div class="hero-actions">
@@ -1029,12 +1226,65 @@
             </div>
 
             <div class="hero-visual">
-                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80" alt="Авторский торт Соло" loading="lazy">
-                <div class="hero-badge-overlay">
-                    <span class="overlay-icon">🍓</span>
-                    <div class="overlay-text">
-                        <h4>Только натуральные ингредиенты</h4>
-                        <p>Свежие ягоды, бельгийский шоколад и натуральные сливки</p>
+                <div class="hero-slider" aria-label="Фотографии кондитерской">
+                    <div class="slides-wrapper">
+                        <div class="slide active">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80" alt="Авторский торт solo">
+                            <div class="hero-badge-overlay">
+                                <span class="overlay-icon">🍓</span>
+                                <div class="overlay-text">
+                                    <h4>Торты на заказ и готовые за 20 минут</h4>
+                                    <p>Индивидуальный дизайн или свежий торт прямо с витрины</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <img src="https://optim.tildacdn.com/tild6231-3234-4331-b638-306633643037/-/format/webp/noroot.png.webp" alt="Завтраки и круассаны" loading="lazy">
+                            <div class="hero-badge-overlay">
+                                <span class="overlay-icon">☕</span>
+                                <div class="overlay-text">
+                                    <h4>Завтраки весь день</h4>
+                                    <p>Тосты, сырники, шакшука или что-то посерьёзнее</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <img src="https://placehold.co/1000x960/EFE6DC/2B1E1A?text=Entrance" alt="Заглушка фотографии входной группы" loading="lazy">
+                            <div class="hero-badge-overlay">
+                                <span class="overlay-icon">📍</span>
+                                <div class="overlay-text">
+                                    <h4>Входная группа</h4>
+                                    <p>Здесь будет фотография входа в кондитерскую на Циолковского, 29</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                            <img src="https://placehold.co/1000x960/EFE6DC/2B1E1A?text=Interior" alt="Заглушка фотографии интерьера" loading="lazy">
+                            <div class="hero-badge-overlay">
+                                <span class="overlay-icon">✨</span>
+                                <div class="overlay-text">
+                                    <h4>Интерьер кондитерской</h4>
+                                    <p>Уютное место для кофе, завтраков и выбора праздничного торта</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="slider-btn prev-btn" aria-label="Предыдущее фото">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button type="button" class="slider-btn next-btn" aria-label="Следующее фото">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </button>
+
+                    <div class="slider-dots" aria-label="Выбор фотографии">
+                        <button type="button" class="slider-dot active" aria-label="Фото 1: торты" aria-current="true"></button>
+                        <button type="button" class="slider-dot" aria-label="Фото 2: завтраки"></button>
+                        <button type="button" class="slider-dot" aria-label="Фото 3: входная группа"></button>
+                        <button type="button" class="slider-dot" aria-label="Фото 4: интерьер"></button>
                     </div>
                 </div>
             </div>
@@ -1051,7 +1301,7 @@
             <p>Праздник уже сегодня, а про торт вспомнили в последний момент? Не переживайте! На витрине нашей кондитерской на Циолковского, 29 всегда есть свежие готовые бенто и классические авторские торты.</p>
             <div class="express-features-list">
                 <div class="express-feature-item">✨ Свежая выпечка каждое утро</div>
-                <div class="express-feature-item">✍️ Подпись и надпись за 5 минут</div>
+                <div class="express-feature-item">✍️ Подпись и надпись за 20 минут</div>
             </div>
         </div>
         <div class="express-cta">
@@ -1100,11 +1350,10 @@
 
         <!-- Категории меню (1 уровень) -->
         <div class="menu-categories">
-            <button class="cat-btn active" data-filter="all">Всё меню</button>
-            <button class="cat-btn" data-filter="cakes-ready">Готовые торты</button>
-            <button class="cat-btn" data-filter="cakes-custom">Торты на заказ</button>
-            <button class="cat-btn" data-filter="food">Еда и десерты</button>
-            <button class="cat-btn" data-filter="drinks">Напитки</button>
+            <button type="button" class="cat-btn active" data-filter="cakes-ready">Готовые торты</button>
+            <button type="button" class="cat-btn" data-filter="cakes-custom">Торты на заказ</button>
+            <button type="button" class="cat-btn" data-filter="food">Еда и десерты</button>
+            <button type="button" class="cat-btn" data-filter="drinks">Напитки</button>
         </div>
 
         <!-- Подкатегории для еды (2 уровень) -->
@@ -1117,17 +1366,35 @@
             <button class="sub-btn" data-subfilter="main">Всерьез</button>
         </div>
 
-        <!-- Подкатегории для напитков (2 уровень) -->
-        <div class="sub-categories" id="drinksSubMenu">
-            <button class="sub-btn active" data-subfilter="all-drinks">Все напитки</button>
-            <button class="sub-btn" data-subfilter="classic">Классика</button>
-            <button class="sub-btn" data-subfilter="takes">Тейки</button>
-            <button class="sub-btn" data-subfilter="ice-cream">Айс крем латте</button>
-            <button class="sub-btn" data-subfilter="matcha">Крем матча</button>
-            <button class="sub-btn" data-subfilter="lemonade">Лимонады</button>
-            <button class="sub-btn" data-subfilter="author">Авторский</button>
-            <button class="sub-btn" data-subfilter="tea">Чай</button>
-            <button class="sub-btn" data-subfilter="milk">Молочные</button>
+        <!-- Подкатегории напитков: холодные, горячие и молочные коктейли -->
+        <div class="sub-categories drinks-categories" id="drinksSubMenu">
+            <button type="button" class="sub-btn active all-drinks-btn" data-subfilter="all-drinks">Все напитки</button>
+
+            <div class="drink-group">
+                <span class="drink-group-title">Холодные</span>
+                <div class="drink-group-buttons">
+                    <button type="button" class="sub-btn" data-subfilter="classic">Классика</button>
+                    <button type="button" class="sub-btn" data-subfilter="ice-cream">Айс крем латте</button>
+                    <button type="button" class="sub-btn" data-subfilter="matcha">Крем матча</button>
+                    <button type="button" class="sub-btn" data-subfilter="lemonade">Лимонады</button>
+                </div>
+            </div>
+
+            <div class="drink-group">
+                <span class="drink-group-title">Горячие</span>
+                <div class="drink-group-buttons">
+                    <button type="button" class="sub-btn" data-subfilter="takes">Тейки</button>
+                    <button type="button" class="sub-btn" data-subfilter="author">Авторский</button>
+                    <button type="button" class="sub-btn" data-subfilter="tea">Чай</button>
+                </div>
+            </div>
+
+            <div class="drink-group">
+                <span class="drink-group-title">Молочные коктейли</span>
+                <div class="drink-group-buttons">
+                    <button type="button" class="sub-btn" data-subfilter="milk">Молочные</button>
+                </div>
+            </div>
         </div>
 
         <div class="menu-grid">
@@ -1237,6 +1504,35 @@
     </div>
 </section>
 
+<!-- Cake Gallery: замените ссылки в src на фотографии своих тортов -->
+<section class="cake-gallery-section" id="gallery">
+    <div class="solo-container">
+        <div class="section-header">
+            <h2>Наши <i>торты</i></h2>
+            <p>Примеры праздничных тортов — здесь будут фотографии ваших работ</p>
+        </div>
+
+        <div class="cake-gallery-grid">
+            <figure class="cake-gallery-item">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Заглушка фотографии торта 1" loading="lazy">
+                <figcaption>Фото торта 1</figcaption>
+            </figure>
+            <figure class="cake-gallery-item">
+                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=80" alt="Заглушка фотографии торта 2" loading="lazy">
+                <figcaption>Фото торта 2</figcaption>
+            </figure>
+            <figure class="cake-gallery-item">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=700&q=80" alt="Заглушка фотографии торта 3" loading="lazy">
+                <figcaption>Фото торта 3</figcaption>
+            </figure>
+            <figure class="cake-gallery-item">
+                <img src="https://images.unsplash.com/photo-1558301211-0d8c8d2598f4?auto=format&fit=crop&w=700&q=80" alt="Заглушка фотографии торта 4" loading="lazy">
+                <figcaption>Фото торта 4</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
 <!-- Reviews Section -->
 <section class="reviews-section" id="reviews">
     <div class="solo-container">
@@ -1262,7 +1558,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="solo-footer">
+<footer class="solo-footer" id="contacts">
     <div class="solo-container">
         <div class="footer-content">
             <div class="footer-col">
@@ -1294,89 +1590,146 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // === Логика перехода с кнопок на нужные вкладки меню ===
-        const triggerCustomCakes = document.querySelectorAll('.trigger-custom-cakes');
-        const triggerReadyCakes = document.querySelectorAll('.trigger-ready-cakes');
-        const customCakesTab = document.querySelector('.cat-btn[data-filter="cakes-custom"]');
-        const readyCakesTab = document.querySelector('.cat-btn[data-filter="cakes-ready"]');
-
-        triggerCustomCakes.forEach(btn => {
-            btn.addEventListener('click', () => {
-                if(customCakesTab) customCakesTab.click();
-            });
-        });
-
-        triggerReadyCakes.forEach(btn => {
-            btn.addEventListener('click', () => {
-                if(readyCakesTab) readyCakesTab.click();
-            });
-        });
-
-
-        // === 1. Фильтр для раздела МЕНЮ (Многоуровневый) ===
+        // === Фильтр меню ===
         const menuBtns = document.querySelectorAll('.menu-categories .cat-btn');
         const subMenuDrinks = document.getElementById('drinksSubMenu');
         const subMenuFood = document.getElementById('foodSubMenu');
         const subBtns = document.querySelectorAll('.sub-categories .sub-btn');
         const menuCards = document.querySelectorAll('.menu-grid .menu-card');
 
-        menuBtns.forEach(button => {
-            button.addEventListener('click', () => {
-                menuBtns.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+        function resetSubFilters(parentMenu, allFilter) {
+            if (!parentMenu) return;
+            parentMenu.querySelectorAll('.sub-btn').forEach(btn => btn.classList.remove('active'));
+            const allButton = parentMenu.querySelector('[data-subfilter="' + allFilter + '"]');
+            if (allButton) allButton.classList.add('active');
+        }
 
-                const filter = button.getAttribute('data-filter');
+        function setMainFilter(filter) {
+            const activeButton = document.querySelector('.cat-btn[data-filter="' + filter + '"]');
+            if (!activeButton) return;
 
-                if (filter === 'drinks') {
-                    subMenuDrinks.style.display = 'flex';
-                    if (subMenuFood) subMenuFood.style.display = 'none';
-                    
-                    subBtns.forEach(b => { if(b.closest('#drinksSubMenu')) b.classList.remove('active'); });
-                    document.querySelector('.sub-btn[data-subfilter="all-drinks"]').classList.add('active');
-                    
-                } else if (filter === 'food') {
-                    if (subMenuFood) subMenuFood.style.display = 'flex';
-                    subMenuDrinks.style.display = 'none';
-                    
-                    subBtns.forEach(b => { if(b.closest('#foodSubMenu')) b.classList.remove('active'); });
-                    document.querySelector('.sub-btn[data-subfilter="all-food"]').classList.add('active');
-                    
-                } else {
-                    subMenuDrinks.style.display = 'none';
-                    if (subMenuFood) subMenuFood.style.display = 'none';
-                }
+            menuBtns.forEach(btn => btn.classList.remove('active'));
+            activeButton.classList.add('active');
 
-                menuCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+            const isDrinks = filter === 'drinks';
+            const isFood = filter === 'food';
+            subMenuDrinks.style.display = isDrinks ? 'block' : 'none';
+            subMenuFood.style.display = isFood ? 'flex' : 'none';
+
+            if (isDrinks) resetSubFilters(subMenuDrinks, 'all-drinks');
+            if (isFood) resetSubFilters(subMenuFood, 'all-food');
+
+            menuCards.forEach(card => {
+                const visible = filter === 'all' || card.dataset.category === filter;
+                card.style.display = visible ? 'flex' : 'none';
             });
+        }
+
+        menuBtns.forEach(button => {
+            button.addEventListener('click', () => setMainFilter(button.dataset.filter));
         });
 
         subBtns.forEach(button => {
             button.addEventListener('click', () => {
                 const parentMenu = button.closest('.sub-categories');
-                
                 parentMenu.querySelectorAll('.sub-btn').forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
-                const subFilter = button.getAttribute('data-subfilter');
-                const isDrink = parentMenu.id === 'drinksSubMenu';
-                const mainCategory = isDrink ? 'drinks' : 'food';
+                const subFilter = button.dataset.subfilter;
+                const mainCategory = parentMenu.id === 'drinksSubMenu' ? 'drinks' : 'food';
 
                 menuCards.forEach(card => {
-                    if (card.getAttribute('data-category') === mainCategory) {
-                        if (subFilter === 'all-drinks' || subFilter === 'all-food' || card.getAttribute('data-subcategory') === subFilter) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    }
+                    const inCategory = card.dataset.category === mainCategory;
+                    const inSubcategory = subFilter === 'all-drinks' || subFilter === 'all-food' || card.dataset.subcategory === subFilter;
+                    card.style.display = inCategory && inSubcategory ? 'flex' : 'none';
                 });
             });
+        });
+
+        document.querySelectorAll('.trigger-custom-cakes').forEach(btn => {
+            btn.addEventListener('click', () => setMainFilter('cakes-custom'));
+        });
+
+        document.querySelectorAll('.trigger-ready-cakes').forEach(btn => {
+            btn.addEventListener('click', () => setMainFilter('cakes-ready'));
+        });
+
+        // По умолчанию показываем готовые торты, селектор «Всё меню» удалён.
+        setMainFilter('cakes-ready');
+
+        // === Слайдер кондитерской ===
+        const heroSlider = document.querySelector('.hero-slider');
+        const slides = document.querySelectorAll('.hero-slider .slide');
+        const dots = document.querySelectorAll('.hero-slider .slider-dot');
+        const prevBtn = document.querySelector('.hero-slider .prev-btn');
+        const nextBtn = document.querySelector('.hero-slider .next-btn');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let currentSlide = 0;
+        let slideInterval;
+
+        function goToSlide(index) {
+            if (!slides.length) return;
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            dots[currentSlide].removeAttribute('aria-current');
+
+            currentSlide = (index + slides.length) % slides.length;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+            dots[currentSlide].setAttribute('aria-current', 'true');
+        }
+
+        function startAutoplay() {
+            if (reduceMotion || slides.length < 2) return;
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+        }
+
+        function resetAutoplay() {
+            clearInterval(slideInterval);
+            startAutoplay();
+        }
+
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                goToSlide(currentSlide - 1);
+                resetAutoplay();
+            });
+            nextBtn.addEventListener('click', () => {
+                goToSlide(currentSlide + 1);
+                resetAutoplay();
+            });
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetAutoplay();
+            });
+        });
+
+        if (heroSlider) {
+            heroSlider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            heroSlider.addEventListener('mouseleave', startAutoplay);
+            startAutoplay();
+        }
+
+        // Если временная или внешняя фотография не загрузилась, показываем аккуратную заглушку.
+        function useImageFallback(img) {
+            if (img.dataset.fallbackApplied) return;
+            img.dataset.fallbackApplied = 'true';
+            const label = (img.alt || 'Фото скоро появится').replace(/[<>&]/g, '');
+            const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">' +
+                '<rect width="800" height="600" fill="#EFE6DC"/>' +
+                '<text x="400" y="300" text-anchor="middle" dominant-baseline="middle" ' +
+                'font-family="Arial, sans-serif" font-size="28" fill="#2B1E1A">' + label + '</text></svg>';
+            img.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+        }
+
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', () => useImageFallback(img));
+            if (img.complete && img.naturalWidth === 0) useImageFallback(img);
         });
     });
 </script>
